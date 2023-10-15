@@ -14,6 +14,10 @@ app.use(express.urlencoded({extended: true}));
 //Define all your routes here.
 app.use('/todos', todoRoute);
 
+app.get('/',(req, res) => {
+  res.send("Welcome to Famba's Tasks API to use it navigate to end point /todos or visit /api-docs for a detailed documentation")
+}); 
+
 const options = {
     definition: {
       openapi: '3.0.0',

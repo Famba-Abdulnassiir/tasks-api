@@ -1,0 +1,29 @@
+{
+  "name": "tasks-api",
+  "description": "Tasks Api is a simple project to help me create a todos REST API and also learn how to document it with Swagger and Open AI. Its meant for learning purposes for my backend bootcamp at kanzucode Foundation.",
+  "version": "1.0.1",
+  "main": "index.js",
+  "devDependencies": {
+    "express": "^4.18.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Famba-Abdulnassiir/tasks-api.git"
+  },
+  "keywords": [
+    "tasks API ",
+    "API documentation",
+    "todo App"
+  ],
+  "author": "Abdulnassiir Famba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Famba-Abdulnassiir/tasks-api/issues"
+  },
+  "homepage": "https://github.com/Famba-Abdulnassiir/tasks-api#readme"
+}

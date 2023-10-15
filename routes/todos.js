@@ -3,8 +3,161 @@ const router = express.Router();
 
 const todos = require('../models/todo_db')
 
+/*******************Swagger API Documentation Start *************************/
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *   Task:
+ *     type: object
+ *     properties:
+ *       id:
+ *         type: integer
+ *         description: This is auto-generated id of the task.
+ *       title:
+ *         type: string
+ *         description: Describe what you will be doing in tis title section.
+ *       completed:
+ *          type: boolean
+ *          description: This is a boolean, true or flase according to if the task is completed or not.
+ *     example:
+ *        id: 1
+ *        title: This is just an example of how todo task looks like
+ *        completed: false
+ */
+
+/**
+ * @swagger
+ * tags:
+ *  name: Todos
+ *  description: Tasks API for managing tasks in our Application.
+ */
+
+/**
+ * @swagger
+ * /todos:
+ *   get:
+ *     summary: Returns the list of all the tasks
+ *     tags: [Todos]
+ *     responses:
+ *       200:
+ *         description: The list of the Tasks
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Task'
+ */
+
+
+/**
+ * @swagger
+ * /todos/{id}:
+ *   get:
+ *     summary: Get the task by id
+ *     tags: [Todos]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: Task id
+ *     responses:
+ *       200:
+ *         description: The todo description by id
+ *         contens:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Task'
+ *       400:
+ *         description: The todo with that id was not found
+ */
 
 //get all todos
+
+/**
+ * @swagger
+ * /todos:
+ *   post:
+ *     summary: Create a new task
+ *     tags: [Todos]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Task'
+ *     responses:
+ *       200:
+ *         description: The todo was successfully created
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Task'
+ *       500:
+ *         description: Some server error
+ */
+
+
+/**
+ * @swagger
+ * /todos/{id}:
+ *  put:
+ *    summary: Update the Task  by the id
+ *    tags: [Todos]
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description: Task id
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/Task'
+ *    responses:
+ *      200:
+ *        description: The Task was  Successfully updated
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Task'
+ *      400:
+ *        description: The task with that id was not found please double check and provide a correct id.
+ *      500:
+ *        description: Some error happened
+ */
+
+
+/**
+ * @swagger
+ * /todos/{id}:
+ *   delete:
+ *     summary: Remove the Task by id
+ *     tags: [Todos]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: Task id
+ * 
+ *     responses:
+ *       200:
+ *         description: The Task was successfully deleted
+ *       400:
+ *         description: The Task was not found
+ */
+
+/*******************END of Documentation*************************/
+
+
 router.get('/', (req, res) =>
 {  
     res.json(todos);    

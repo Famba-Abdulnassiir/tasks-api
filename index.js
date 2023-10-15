@@ -32,11 +32,22 @@ const options = {
       },
       servers: [
         {
-            url: "http://localhost:8000",
+          url: 'https://tasks-api-be6y.onrender.com',
+          name: 'Production Server'
         },
+        {
+            url: "http://localhost:8000",
+            name:"Development server"
+        },
+        
     ],
     },
-    apis: ['../tasks-api/routes/*.js'], // files containing annotations as above
+    //Production Server
+    apis: ['./routes/*.js'], // files containing annotations as above
+
+    //Development server
+   // apis: ['../tasks-api/routes/*.js'],
+
   };
   
 
